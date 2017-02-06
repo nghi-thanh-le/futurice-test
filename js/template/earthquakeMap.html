@@ -1,0 +1,53 @@
+<div class="controller">
+    <h1 class="text-center">Earthquakes Map</h1>
+    <div class="row">
+        <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPLHwW1Atw0_7ISMPAQtAciu8sgjvp-RY" class="col-xs-12 col-md-10 col-md-offset-1">
+            <ng-map zoom="2" default-style="false" id="map_container">
+                <marker id="{{feature.id}}" position="{{feature.geometry.coordinates}}" ng-repeat="feature in features" on-mouseover="showDetailMouseOver(feature)" on-mouseout="hideDetailMouseOver()" on-click="showDetailClick(feature)" icon="{
+                      path: 'CIRCLE',
+                      fillColor: '{{feature.properties.color}}',
+                      fillOpacity: 0.8,
+                      scale: {{feature.properties.radius}},
+                      strokeColor: '{{feature.properties.color}}',
+                      strokeWeight: 0
+                    }">
+                    </marker>
+
+                    <info-window id="iw-clicked" class="panel panel-default">
+                        <div ng-non-bindable="">
+                            <dl>
+                                <dt>Region</dt>
+                                <dd>{{feature.properties.place}}</dd>
+                                <dt>DateTime</dt>
+                                <dd>{{feature.properties.time | date:'short'}}</dd>
+                                <dd>{{feature.properties.time | timeDifferent}}</dd>
+                                <dt>Depth</dt>
+                                <dd>{{feature.properties.depth}} km</dd>
+                                <dt>Magnitude</dt>
+                                <dd>{{feature.properties.mag}}</dd>
+                            </dl>
+                        </div>
+                    </info-window>
+                    <info-window id="iw-mouse-over" class="panel panel-default">
+                        <div ng-non-bindable="">
+                            {{feature.properties.title}}
+                        </div>
+                    </info-window>
+            </ng-map>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <ul class="list-inline">
+                <li><div class="mag-icon mag-icon-small"></div>1-2 mag</li>
+                <li><div class="mag-icon mag-icon-medium"></div>2-4 mag</li>
+                <li><div class="mag-icon mag-icon-large"></div>&gt; 4 mag</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <button ui-sref="quakes" type="button" class="btn btn-default">Quakes List</button>
+        </div>
+    </div>
+</div>
