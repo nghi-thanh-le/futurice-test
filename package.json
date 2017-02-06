@@ -1,18 +1,22 @@
 {
   "name": "futurice-test",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "start": "gulp browser-sync",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./bin/www"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "angular": "^1.6.1",
     "angular-ui-router": "^0.4.2",
+    "body-parser": "~1.15.1",
     "browser-sync": "^2.18.7",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
     "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "morgan": "~1.7.0",
     "ngmap": "^1.18.0"
   }
 }

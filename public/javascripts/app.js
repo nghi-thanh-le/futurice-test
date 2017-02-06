@@ -12,18 +12,15 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('earthquakeMap', {
+            name: 'earthquakeMap',
             url: '/',
-            templateUrl: 'js/template/earthquakeMap.html',
+            templateUrl: 'javascripts/template/earthquakeMap.html',
             controller: 'MapController'
         })
-        // .state('earthquakeMap', {
-        //     url: '/',
-        //     templateUrl: 'js/template/quakes.html',
-        //     controller: 'QuakesController'
-        // })
         .state('quakes', {
+            name: 'quakes',
             url: '/quakes',
-            templateUrl: 'js/template/quakes.html',
+            templateUrl: 'javascripts/template/quakes.html',
             controller: 'QuakesController'
         });
 });
